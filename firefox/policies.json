@@ -1,0 +1,11 @@
+{
+  "policies": {
+    "DisableTelemetry": true,
+    "Preferences": {
+      "toolkit.legacyUserProfileCustomizations.stylesheets": {
+        "Value": true,
+        "Status": "default"
+      }
+  }
+}
+}
