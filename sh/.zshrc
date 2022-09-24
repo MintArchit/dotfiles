@@ -72,6 +72,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	git
+	colored-man-pages
+	cp
+	command-not-found
+	colorize
 )
 
 source $ZSH/oh-my-zsh.sh
