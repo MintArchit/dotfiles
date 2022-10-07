@@ -117,4 +117,4 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # append
-path+=("$HOME/ghub/scripts/utils")
+path+=("$HOME/ghub/scripts/utils" "$HOME/.cargo/bin")
