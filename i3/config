@@ -197,7 +197,7 @@ bindsym $mod+r mode "resize"
 exec --no-startup-id ~/.fehbg &
 #exec --no-startup-id picom -f --xrender-fence
 exec --no-startup-id picom -b
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec --no-startup-id $HOME/.config/polybar/launch.sh
 
 # You can also use any non-zero value if you'd like to have a border
 for_window [class=".*"] border pixel 0
