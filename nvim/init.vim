@@ -56,10 +56,13 @@ function! Netrw_mappings()
   noremap <buffer>% :call CreateInPreview()<cr>
 endfunction
 
+"autocmds
 augroup auto_commands
     autocmd filetype netrw call Netrw_mappings()
+    autocmd TermOpen * setlocal nonumber norelativenumber
 augroup END
 
+" Plugins install with :PlugInstall
 call plug#begin()
     " Appearance
     Plug 'vim-airline/vim-airline'
