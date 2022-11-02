@@ -177,3 +177,11 @@ nnoremap <F7> :call MonkeyTerminalToggle()<cr>
 tnoremap <F7> <C-\><C-n>:call MonkeyTerminalToggle()<cr>
 nnoremap <M-CR> :call MonkeyTerminalToggle()<cr>
 tnoremap <M-CR> <C-\><C-n>:call MonkeyTerminalToggle()<cr>
+:tnoremap <Esc> <C-\><C-n>
+
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
