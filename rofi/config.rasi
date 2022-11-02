@@ -151,10 +151,24 @@ configuration {
 
 }
 
-@theme "arthur"
+@theme "onedark"
+
+entry {
+    placeholder: "Type here";
+    //cursor: pointer;
+}
 
 element {
   orientation: horizontal;
   children: [ element-text, element-icon ];
   spacing: 5px;
 }
+
+element-icon {
+    size: 2.5em;
+}
+
+element-text {
+    vertical-align: 0.5;
+}
+
