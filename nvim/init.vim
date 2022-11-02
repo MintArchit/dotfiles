@@ -1,5 +1,7 @@
 " Options
+
 set background=dark
+set foldcolumn=1
 set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching 
 set ignorecase              " case insensitive 
@@ -35,7 +37,7 @@ endif
 let &t_ZH="\e[3m"
 let &t_ZR="\e[23m"
 
-" File browser
+" netrw File browser
 let g:netrw_banner=0
 let g:netrw_liststyle=0
 let g:netrw_browse_split=4
@@ -65,9 +67,15 @@ augroup END
 " Plugins install with :PlugInstall
 call plug#begin()
     " Appearance
-    Plug 'vim-airline/vim-airline'
+    "Plug 'vim-airline/vim-airline'
+    Plug 'nvim-lualine/lualine.nvim'
     Plug 'ryanoasis/vim-devicons'
-    Plug 'elvessousa/sobrio'
+    Plug 'kyazdani42/nvim-web-devicons'
+    Plug 'kdheepak/tabline.nvim'
+    "Plug 'elvessousa/sobrio'
+    "Plug 'lunarvim/colorschemes'
+    Plug 'navarasu/onedark.nvim'
+    "Plug 'joshdick/onedark'
 
     " Utilities
     Plug 'sheerun/vim-polyglot'
@@ -83,13 +91,95 @@ call plug#begin()
     Plug 'airblade/vim-gitgutter'
 call plug#end()
 
+lua << END
+require'tabline'.setup {
+      -- Defaults configuration options
+      enable = true,
+      options = {
+      -- If lualine is installed tabline will use separators configured in lualine by default.
+      -- These options can be used to override those settings.
+        section_separators = {'', ''},
+        component_separators = {'', ''},
+        max_bufferline_percent = 66, -- set to nil by default, and it uses vim.o.columns * 2/3
+        show_tabs_always = false, -- this shows tabs only when there are more than one tab or if the first tab is named
+        show_devicons = true, -- this shows devicons in buffer section
+        show_bufnr = false, -- this appends [bufnr] to buffer section,
+        show_filename_only = false, -- shows base filename only instead of relative path in filename
+        modified_icon = "+ ", -- change the default modified icon
+        modified_italic = false, -- set to true by default; this determines whether the filename turns italic if modified
+        show_tabs_only = false, -- this shows only tabs instead of tabs + buffers
+      }
+}
+
+require('onedark').setup {
+    style = 'warm'
+}
+require('onedark').load()
+
+require('lualine').setup {
+  options = {
+    icons_enabled = true,
+    theme = 'auto',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {
+      statusline = {},
+      winbar = {},
+    },
+    ignore_focus = {},
+    always_divide_middle = true,
+    globalstatus = false,
+    refresh = {
+      statusline = 1000,
+      tabline = 1000,
+      winbar = 1000,
+    }
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  winbar = {},
+  inactive_winbar = {},
+  extensions = {}
+}
+require('lualine').setup()
+END
+
 " Airline conf
-let g:airline_theme='sobrio'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
+"let g:airline_theme='onedark'
+"let g:airline_powerline_fonts = 1
+"let g:airline#extensions#tabline#enabled = 1
 
 " File browser
 let NERDTreeShowHidden=1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
+
+" Start NERDTree. If a file is specified, move the cursor to its window.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
+
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 
 " Normal mode remappings
 nnoremap <C-q> :q!<CR>
@@ -185,3 +275,10 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
+
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

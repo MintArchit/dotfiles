@@ -152,3 +152,9 @@ configuration {
 }
 
 @theme "arthur"
+
+element {
+  orientation: horizontal;
+  children: [ element-text, element-icon ];
+  spacing: 5px;
+}
