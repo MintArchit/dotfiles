@@ -1,0 +1,553 @@
+{
+  "abort-clear-search":{
+    "value":true,
+    "type":"boolean",
+    "description":"Clear search results on abort",
+    "init-only":false
+  },
+  "adjust-open":{
+    "value":"best-fit",
+    "type":"string",
+    "description":"Adjust to when opening file",
+    "init-only":false
+  },
+  "advance-pages-per-row":{
+    "value":true,
+    "type":"boolean",
+    "description":"Advance number of pages per row",
+    "init-only":false
+  },
+  "completion-bg":{
+    "value":"#232323",
+    "type":"string",
+    "description":"Completion background color",
+    "init-only":false
+  },
+  "completion-fg":{
+    "value":"#DDDDDD",
+    "type":"string",
+    "description":"Completion foreground color",
+    "init-only":false
+  },
+  "completion-group-bg":{
+    "value":"#000000",
+    "type":"string",
+    "description":"Completion group background color",
+    "init-only":false
+  },
+  "completion-group-fg":{
+    "value":"#DEDEDE",
+    "type":"string",
+    "description":"Completion group foreground color",
+    "init-only":false
+  },
+  "completion-highlight-bg":{
+    "value":"#9FBC00",
+    "type":"string",
+    "description":"Completion highlight background color",
+    "init-only":false
+  },
+  "completion-highlight-fg":{
+    "value":"#232323",
+    "type":"string",
+    "description":"Completion highlight foreground color",
+    "init-only":false
+  },
+  "continuous-hist-save":{
+    "value":false,
+    "type":"boolean",
+    "description":"Save history at each page change",
+    "init-only":false
+  },
+  "database":{
+    "value":"plain",
+    "type":"string",
+    "description":"Database backend",
+    "init-only":true
+  },
+  "dbus-raise-window":{
+    "value":true,
+    "type":"boolean",
+    "description":"Raise window on certain D-Bus commands",
+    "init-only":false
+  },
+  "dbus-service":{
+    "value":true,
+    "type":"boolean",
+    "description":"Enable D-Bus service",
+    "init-only":false
+  },
+  "default-bg":{
+    "value":"#000000",
+    "type":"string",
+    "description":"Default background color",
+    "init-only":false
+  },
+  "default-fg":{
+    "value":"#DDDDDD",
+    "type":"string",
+    "description":"Default foreground color",
+    "init-only":false
+  },
+  "exec-command":{
+    "value":"",
+    "type":"string",
+    "description":"Command to execute in :exec",
+    "init-only":false
+  },
+  "filemonitor":{
+    "value":"glib",
+    "type":"string",
+    "description":"File monitor backend",
+    "init-only":true
+  },
+  "first-page-column":{
+    "value":"1:2",
+    "type":"string",
+    "description":"Column of the first page",
+    "init-only":false
+  },
+  "font":{
+    "value":"monospace normal 9",
+    "type":"string",
+    "description":"Font",
+    "init-only":false
+  },
+  "guioptions":{
+    "value":"s",
+    "type":"string",
+    "description":"Show or hide certain GUI elements",
+    "init-only":false
+  },
+  "highlight-active-color":{
+    "value":"#00BC00",
+    "type":"string",
+    "description":"Color for highlighting (active)",
+    "init-only":false
+  },
+  "highlight-color":{
+    "value":"#9FBC00",
+    "type":"string",
+    "description":"Color for highlighting",
+    "init-only":false
+  },
+  "highlight-fg":{
+    "value":"#000000",
+    "type":"string",
+    "description":"Foreground color for highlighting",
+    "init-only":false
+  },
+  "highlight-transparency":{
+    "value":0.5,
+    "type":"float",
+    "description":"Transparency for highlighting",
+    "init-only":false
+  },
+  "incremental-search":{
+    "value":false,
+    "type":"boolean",
+    "description":"Enable incremental search",
+    "init-only":false
+  },
+  "index-active-bg":{
+    "value":"#9FBC00",
+    "type":"string",
+    "description":"Index mode background color (active element)",
+    "init-only":true
+  },
+  "index-active-fg":{
+    "value":"#232323",
+    "type":"string",
+    "description":"Index mode foreground color (active element)",
+    "init-only":true
+  },
+  "index-bg":{
+    "value":"#232323",
+    "type":"string",
+    "description":"Index mode background color",
+    "init-only":true
+  },
+  "index-fg":{
+    "value":"#DDDDDD",
+    "type":"string",
+    "description":"Index mode foreground color",
+    "init-only":true
+  },
+  "inputbar-bg":{
+    "value":"#131313",
+    "type":"string",
+    "description":"Inputbar background color",
+    "init-only":false
+  },
+  "inputbar-fg":{
+    "value":"#9FBC00",
+    "type":"string",
+    "description":"Inputbar foreground color",
+    "init-only":false
+  },
+  "jumplist-size":{
+    "value":2000,
+    "type":"int",
+    "description":"Number of positions to remember in the jumplist",
+    "init-only":false
+  },
+  "link-hadjust":{
+    "value":true,
+    "type":"boolean",
+    "description":"Align link target to the left",
+    "init-only":false
+  },
+  "link-zoom":{
+    "value":true,
+    "type":"boolean",
+    "description":"Let zoom be changed when following links",
+    "init-only":false
+  },
+  "n-completion-items":{
+    "value":15,
+    "type":"int",
+    "description":"Number of completion items",
+    "init-only":true
+  },
+  "nohlsearch":{
+    "value":false,
+    "type":"boolean",
+    "description":"Highlight search results",
+    "init-only":false
+  },
+  "notification-bg":{
+    "value":"#FFFFFF",
+    "type":"string",
+    "description":"Notification background color",
+    "init-only":false
+  },
+  "notification-error-bg":{
+    "value":"#FF1212",
+    "type":"string",
+    "description":"Error notification background color",
+    "init-only":false
+  },
+  "notification-error-fg":{
+    "value":"#FFFFFF",
+    "type":"string",
+    "description":"Error notification foreground color",
+    "init-only":false
+  },
+  "notification-fg":{
+    "value":"#000000",
+    "type":"string",
+    "description":"Notification foreground color",
+    "init-only":false
+  },
+  "notification-warning-bg":{
+    "value":"#F3F000",
+    "type":"string",
+    "description":"Warning notifaction background color",
+    "init-only":false
+  },
+  "notification-warning-fg":{
+    "value":"#000000",
+    "type":"string",
+    "description":"Warning notification foreground color",
+    "init-only":false
+  },
+  "open-first-page":{
+    "value":false,
+    "type":"boolean",
+    "description":"Always open on first page",
+    "init-only":false
+  },
+  "page-cache-size":{
+    "value":15,
+    "type":"int",
+    "description":"Maximum number of pages to keep in the cache",
+    "init-only":true
+  },
+  "page-padding":{
+    "value":1,
+    "type":"int",
+    "description":"Padding between pages",
+    "init-only":false
+  },
+  "page-right-to-left":{
+    "value":false,
+    "type":"boolean",
+    "description":"Render pages from right to left",
+    "init-only":false
+  },
+  "page-thumbnail-size":{
+    "value":4194304,
+    "type":"int",
+    "description":"Maximum size in pixels of thumbnails to keep in the cache",
+    "init-only":true
+  },
+  "pages-per-row":{
+    "value":1,
+    "type":"int",
+    "description":"Number of pages per row",
+    "init-only":false
+  },
+  "recolor":{
+    "value":true,
+    "type":"boolean",
+    "description":"Recolor pages",
+    "init-only":false
+  },
+  "recolor-darkcolor":{
+    "value":"#FFFFFF",
+    "type":"string",
+    "description":"Recoloring (dark color)",
+    "init-only":false
+  },
+  "recolor-keephue":{
+    "value":false,
+    "type":"boolean",
+    "description":"When recoloring keep original hue and adjust lightness only",
+    "init-only":false
+  },
+  "recolor-lightcolor":{
+    "value":"#000000",
+    "type":"string",
+    "description":"Recoloring (light color)",
+    "init-only":false
+  },
+  "recolor-reverse-video":{
+    "value":false,
+    "type":"boolean",
+    "description":"When recoloring keep original image colors",
+    "init-only":false
+  },
+  "render-loading":{
+    "value":true,
+    "type":"boolean",
+    "description":"Render 'Loading ...'",
+    "init-only":false
+  },
+  "render-loading-bg":{
+    "value":"#FFFFFF",
+    "type":"string",
+    "description":"'Loading ...' background color",
+    "init-only":false
+  },
+  "render-loading-fg":{
+    "value":"#000000",
+    "type":"string",
+    "description":"'Loading ...' foreground color",
+    "init-only":false
+  },
+  "sandbox":{
+    "value":"normal",
+    "type":"string",
+    "description":"Sandbox level",
+    "init-only":true
+  },
+  "scroll-full-overlap":{
+    "value":0.0,
+    "type":"float",
+    "description":"Full page scroll overlap",
+    "init-only":false
+  },
+  "scroll-hstep":{
+    "value":40.0,
+    "type":"float",
+    "description":"Horizontal scroll step",
+    "init-only":false
+  },
+  "scroll-page-aware":{
+    "value":false,
+    "type":"boolean",
+    "description":"Page aware scrolling",
+    "init-only":false
+  },
+  "scroll-step":{
+    "value":40.0,
+    "type":"float",
+    "description":"Scroll step",
+    "init-only":false
+  },
+  "scroll-wrap":{
+    "value":false,
+    "type":"boolean",
+    "description":"Wrap scrolling",
+    "init-only":false
+  },
+  "scrollbar-bg":{
+    "value":"#000000",
+    "type":"string",
+    "description":"Scrollbar background color",
+    "init-only":false
+  },
+  "scrollbar-fg":{
+    "value":"#DDDDDD",
+    "type":"string",
+    "description":"Scrollbar foreground color",
+    "init-only":false
+  },
+  "search-hadjust":{
+    "value":true,
+    "type":"boolean",
+    "description":"Center result horizontally",
+    "init-only":false
+  },
+  "selection-clipboard":{
+    "value":"primary",
+    "type":"string",
+    "description":"The clipboard into which mouse-selected data will be written",
+    "init-only":false
+  },
+  "selection-notification":{
+    "value":true,
+    "type":"boolean",
+    "description":"Enable notification after selecting text",
+    "init-only":false
+  },
+  "show-directories":{
+    "value":true,
+    "type":"boolean",
+    "description":"Show directories",
+    "init-only":false
+  },
+  "show-hidden":{
+    "value":false,
+    "type":"boolean",
+    "description":"Show hidden files and directories",
+    "init-only":false
+  },
+  "show-recent":{
+    "value":10,
+    "type":"int",
+    "description":"Show recent files",
+    "init-only":false
+  },
+  "statusbar-basename":{
+    "value":false,
+    "type":"boolean",
+    "description":"Use basename of the file in the statusbar",
+    "init-only":false
+  },
+  "statusbar-bg":{
+    "value":"#000000",
+    "type":"string",
+    "description":"Statsubar background color",
+    "init-only":false
+  },
+  "statusbar-fg":{
+    "value":"#FFFFFF",
+    "type":"string",
+    "description":"Statusbar foreground color",
+    "init-only":false
+  },
+  "statusbar-h-padding":{
+    "value":8,
+    "type":"int",
+    "description":"Horizontal padding for the status, input, and notification bars",
+    "init-only":true
+  },
+  "statusbar-home-tilde":{
+    "value":false,
+    "type":"boolean",
+    "description":"Use ~ instead of $HOME in the filename in the statusbar",
+    "init-only":false
+  },
+  "statusbar-page-percent":{
+    "value":false,
+    "type":"boolean",
+    "description":"Display (current page \/ total pages) as a percent in the statusbar",
+    "init-only":false
+  },
+  "statusbar-v-padding":{
+    "value":2,
+    "type":"int",
+    "description":"Vertical padding for the status, input, and notification bars",
+    "init-only":true
+  },
+  "synctex":{
+    "value":true,
+    "type":"boolean",
+    "description":"Enable synctex support",
+    "init-only":false
+  },
+  "synctex-editor-command":{
+    "value":"",
+    "type":"string",
+    "description":"Synctex editor command",
+    "init-only":false
+  },
+  "vertical-center":{
+    "value":false,
+    "type":"boolean",
+    "description":"Vertically center pages",
+    "init-only":false
+  },
+  "window-height":{
+    "value":600,
+    "type":"int",
+    "description":"Initial window height",
+    "init-only":true
+  },
+  "window-icon":{
+    "value":"org.pwmt.zathura",
+    "type":"string",
+    "description":"Window icon",
+    "init-only":false
+  },
+  "window-icon-document":{
+    "value":false,
+    "type":"boolean",
+    "description":"Use first page of a document as window icon",
+    "init-only":false
+  },
+  "window-title-basename":{
+    "value":false,
+    "type":"boolean",
+    "description":"Use basename of the file in the window title",
+    "init-only":false
+  },
+  "window-title-home-tilde":{
+    "value":false,
+    "type":"boolean",
+    "description":"Use ~ instead of $HOME in the filename in the window title",
+    "init-only":false
+  },
+  "window-title-page":{
+    "value":false,
+    "type":"boolean",
+    "description":"Display the page number in the window title",
+    "init-only":false
+  },
+  "window-width":{
+    "value":800,
+    "type":"int",
+    "description":"Initial window width",
+    "init-only":true
+  },
+  "word-separator":{
+    "value":" \/.-=&#?",
+    "type":"string",
+    "init-only":true
+  },
+  "zoom-center":{
+    "value":false,
+    "type":"boolean",
+    "description":"Horizontally centered zoom",
+    "init-only":false
+  },
+  "zoom-max":{
+    "value":1000,
+    "type":"int",
+    "description":"Zoom maximum",
+    "init-only":false
+  },
+  "zoom-min":{
+    "value":10,
+    "type":"int",
+    "description":"Zoom minimum",
+    "init-only":false
+  },
+  "zoom-step":{
+    "value":10,
+    "type":"int",
+    "description":"Zoom step",
+    "init-only":false
+  }
+}
