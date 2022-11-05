@@ -79,6 +79,7 @@ call plug#begin()
 
     " Utilities
     "Plug 'numToStr/Comment.nvim' 
+    Plug 'lervag/vimtex'
     Plug 'sheerun/vim-polyglot'
     Plug 'jiangmiao/auto-pairs'
     Plug 'ap/vim-css-color'
