@@ -1,5 +1,4 @@
 " Options
-
 set background=dark
 set foldcolumn=1
 set nocompatible            " disable compatibility to old-time vi
@@ -23,7 +22,7 @@ set ttyfast                 " Speed up scrolling in Vim
 " set noswapfile            " disable creating swap file
 " set backupdir=~/.cache/vim " Directory to store backup files.
 
-" Tabs
+" Indent-Tabs
 set softtabstop=4           " see multiple spaces as tabstops so <BS> does the right thing
 set shiftwidth=4            " width for autoindents
 set tabstop=4               " number of columns occupied by a tab 
@@ -64,6 +63,7 @@ augroup auto_commands
     autocmd TermOpen * setlocal nonumber norelativenumber
 augroup END
 
+" Plugins
 " Plugins install with :PlugInstall
 call plug#begin()
     " Appearance
@@ -78,6 +78,7 @@ call plug#begin()
     "Plug 'joshdick/onedark'
 
     " Utilities
+    "Plug 'numToStr/Comment.nvim' 
     Plug 'sheerun/vim-polyglot'
     Plug 'jiangmiao/auto-pairs'
     Plug 'ap/vim-css-color'
@@ -92,6 +93,7 @@ call plug#begin()
 call plug#end()
 
 lua << END
+--lua require('Comment').setup()
 require'tabline'.setup {
       -- Defaults configuration options
       enable = true,
@@ -110,12 +112,10 @@ require'tabline'.setup {
         show_tabs_only = false, -- this shows only tabs instead of tabs + buffers
       }
 }
-
 require('onedark').setup {
     style = 'warm'
 }
 require('onedark').load()
-
 require('lualine').setup {
   options = {
     icons_enabled = true,
@@ -164,34 +164,18 @@ END
 "let g:airline_powerline_fonts = 1
 "let g:airline#extensions#tabline#enabled = 1
 
-" File browser
+" NERDTree File browser
 let NERDTreeShowHidden=1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
-
-" Start NERDTree. If a file is specified, move the cursor to its window.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
-
-" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
-autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
-
-" Open the existing NERDTree on each new tab.
-autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
-
-" Normal mode remappings
-nnoremap <C-q> :q!<CR>
-nnoremap <F4> :bd<CR>
-nnoremap <F5> :NERDTreeToggle<CR>
-"nnoremap <F6> :belowright<CR>:terminal<CR>
 
 " Tabs
 nnoremap <S-Tab> gT
 nnoremap <Tab> gt
 nnoremap <silent> <S-t> :tabnew<CR>
 
+" Terminal
 " With this function you can reuse the same terminal in neovim.
 " You can toggle the terminal and also send a command to the same terminal.
 
@@ -262,6 +246,24 @@ function! MonkeyTerminalExec(cmd)
   wincmd p
 endfunction
 
+" hotkeys remapped
+" move panes
+"nnoremap <C-J> <C-W><C-J>
+"nnoremap <C-K> <C-W><C-K>
+"nnoremap <C-L> <C-W><C-L>
+"nnoremap <C-H> <C-W><C-H>
+
+nnoremap <C-Down> <C-W><C-J>
+nnoremap <C-Up> <C-W><C-K>
+nnoremap <C-Right> <C-W><C-L>
+nnoremap <C-Left> <C-W><C-H>
+
+" NERDTree Normal mode remappings
+nnoremap <C-q> :q!<CR>
+nnoremap <F4> :bd<CR>
+nnoremap <F5> :NERDTreeToggle<CR>
+"nnoremap <F6> :belowright<CR>:terminal<CR>
+
 " With this maps you can now toggle the terminal
 nnoremap <F7> :call MonkeyTerminalToggle()<cr>
 tnoremap <F7> <C-\><C-n>:call MonkeyTerminalToggle()<cr>
@@ -269,16 +271,24 @@ nnoremap <M-CR> :call MonkeyTerminalToggle()<cr>
 tnoremap <M-CR> <C-\><C-n>:call MonkeyTerminalToggle()<cr>
 :tnoremap <Esc> <C-\><C-n>
 
-
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
+" autocmds
 augroup remember_folds
   autocmd!
   autocmd BufWinLeave * mkview
-  autocmd BufWinEnter * silent! loadview
+  autocmd bufwinenter * silent! loadview
 augroup END
 
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" Start NERDTree. If a file is specified, move the cursor to its window.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
+
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+ autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+
+" Open the existing NERDTree on each new tab.
+"autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+
+ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+
