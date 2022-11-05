@@ -1,7 +1,7 @@
 # Zathura configuration file
 # See man `man zathurarc'
 
-include themes/zathura-dark.conf
+include themes/mydark.conf
 
 # Hotkeys
 unmap f
