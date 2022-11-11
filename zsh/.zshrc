@@ -117,6 +117,9 @@ alias lh='ls --color=tty --group-directories-first -pAd .*'
 alias psh='gitup.sh'
 alias cls='cls.sh'
 
+export EDITOR=/usr/bin/nvim
+export VISUAL=/usr/bin/nvim
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
