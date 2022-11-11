@@ -1,4 +1,4 @@
-" Options
+"v Options
 set background=dark
 set foldcolumn=1
 set nocompatible            " disable compatibility to old-time vi
@@ -78,7 +78,9 @@ call plug#begin()
     "Plug 'joshdick/onedark'
 
     " Utilities
-    "Plug 'numToStr/Comment.nvim' 
+    " Plug 'tpope/vim-commentary'
+    " Plug 'numToStr/Comment.nvim' 
+    Plug 'preservim/nerdcommenter'
     Plug 'lervag/vimtex'
     Plug 'sheerun/vim-polyglot'
     Plug 'jiangmiao/auto-pairs'
@@ -292,4 +294,4 @@ autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | e
 
  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-
+let g:vimtex_view_method = 'zathura'
