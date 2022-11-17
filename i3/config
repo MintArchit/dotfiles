@@ -53,8 +53,8 @@ bindsym $mod+t exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+F4 kill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run -b
+# start dmenu/rofi (a program launcher)
+bindsym $mod+F2 exec --no-startup-id dmenu_run -b
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 bindsym $mod+a exec "rofi -modi drun,run -show drun"
@@ -62,7 +62,7 @@ bindsym $mod+a exec "rofi -modi drun,run -show drun"
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
-# change focus
+# change focus vi direction
 #bindsym $mod+j focus left
 #bindsym $mod+k focus down
 #bindsym $mod+l focus up
@@ -74,11 +74,11 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+# move focused window vi directions
+#bindsym $mod+Shift+j move left
+#bindsym $mod+Shift+k move down
+#bindsym $mod+Shift+l move up
+#bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -150,16 +150,17 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+Ctrl+Shift+r reload && restart
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+#bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 #bindsym $mod+l exec "i3-msg exit"
-bindsym $mod+l exec $HOME/ghub/scripts/utils/lock.sh
+bindsym $mod+Shift+l exec $HOME/ghub/scripts/utils/lock.sh
 bindsym $mod+Shift+s exec poweroff
-bindsym $mod+Shift+b exec reboot
+bindsym $mod+Shift+r exec reboot
 bindsym $mod+comma exec gnome-control-center
+bindsym $mod+r mode "resize"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -169,10 +170,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        #bindsym j resize shrink width 10 px or 10 ppt
+        #bindsym k resize grow height 10 px or 10 ppt
+        #bindsym l resize shrink height 10 px or 10 ppt
+        #bindsym semicolon resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -186,7 +187,6 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
-bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -206,8 +206,8 @@ exec --no-startup-id picom -b
 exec --no-startup-id $HOME/.config/polybar/launch.sh
 
 # test system
-# setxkbmap -query
 exec_always "setxkbmap -model pc105 -option 'grp:win_shift_toggle' -layout us,de -variant ,qwerty"
+# setxkbmap -query
 #setxkbmap -layout de,en
 #setxkbmap -option 'grp:ctrl_alt_toggle'
 #bindsym $mod+j exec --no-startup=id setxkbmap de
