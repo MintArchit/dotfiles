@@ -46,9 +46,10 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+t exec i3-sensible-terminal
-#bindsym $mod+t exec $HOME/.cargo/bin/alacritty
+# program hotkeys
+bindsym $mod+t exec i3-sensible-terminal # start a terminal
+bindsym $mod+b exec firefox
+bindsym $mod+n exec nemo
 
 # kill focused window
 bindsym $mod+F4 kill
@@ -87,13 +88,13 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+| split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+- split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+#bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -150,16 +151,18 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # reload the configuration file
-bindsym $mod+Ctrl+Shift+r reload && restart
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-#bindsym $mod+Shift+r restart
+bindsym $mod+Ctrl+Shift+r reload && restart
+
+# powermenu hotkeys
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-#bindsym $mod+l exec "i3-msg exit"
-bindsym $mod+Shift+l exec $HOME/ghub/scripts/utils/lock.sh
 bindsym $mod+Shift+s exec poweroff
 bindsym $mod+Shift+r exec reboot
+bindsym $mod+Shift+e exec "i3-msg exit"
+bindsym $mod+Shift+l exec $HOME/ghub/scripts/utils/lock.sh
 bindsym $mod+comma exec gnome-control-center
+
 
 # resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
