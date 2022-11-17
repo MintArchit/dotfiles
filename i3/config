@@ -160,9 +160,9 @@ bindsym $mod+Shift+l exec $HOME/ghub/scripts/utils/lock.sh
 bindsym $mod+Shift+s exec poweroff
 bindsym $mod+Shift+r exec reboot
 bindsym $mod+comma exec gnome-control-center
-bindsym $mod+r mode "resize"
 
 # resize window (you can also use the mouse for that)
+bindsym $mod+r mode "resize"
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
