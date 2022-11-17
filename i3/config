@@ -49,7 +49,7 @@ floating_modifier $mod
 # program hotkeys
 bindsym $mod+t exec i3-sensible-terminal # start a terminal
 bindsym $mod+b exec firefox
-bindsym $mod+n exec nemo
+bindsym $mod+e exec nemo
 
 # kill focused window
 bindsym $mod+F4 kill
@@ -97,9 +97,12 @@ bindsym $mod+v split v
 bindsym $mod+F11 fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+#bindsym $mod+e layout toggle split
+#bindsym $mod+Alt+Left layout toggle splith tabbed stacked splitv
+bindsym $mod+Tab layout toggle tabbed splith splitv stacked
+bindsym $mod+Shift+Tab layout toggle stacked splitv splith tabbed
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle

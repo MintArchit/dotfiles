@@ -1,8 +1,8 @@
 highlight   clear
 
-highlight   Win          cterm=none           ctermfg=252   ctermbg=none
-highlight   OtherWin     cterm=none           ctermfg=252   ctermbg=none
-highlight   Border       cterm=none           ctermfg=252   ctermbg=none
+highlight   Win          cterm=none           ctermfg=252   ctermbg=235
+highlight   OtherWin     cterm=none           ctermfg=252   ctermbg=234
+highlight   Border       cterm=none           ctermfg=252   ctermbg=234
 highlight   AuxWin       cterm=none           ctermfg=252   ctermbg=234
 
 highlight   TopLine      cterm=bold           ctermfg=71   ctermbg=235
@@ -10,10 +10,10 @@ highlight   TopLineSel   cterm=bold           ctermfg=234   ctermbg=149
 
 highlight   CmdLine      cterm=none           ctermfg=252   ctermbg=234
 highlight   ErrorMsg     cterm=bold           ctermfg=160   ctermbg=234
-highlight   StatusLine   cterm=bold           ctermfg=71    ctermbg=235
-highlight   JobLine      cterm=bold           ctermfg=71    ctermbg=235
-highlight   SuggestBox   cterm=bold           ctermfg=71    ctermbg=235
-highlight   WildMenu     cterm=bold           ctermfg=71    ctermbg=235
+highlight   StatusLine   cterm=bold           ctermfg=71    ctermbg=236
+highlight   JobLine      cterm=bold           ctermfg=71    ctermbg=236
+highlight   SuggestBox   cterm=bold           ctermfg=71    ctermbg=236
+highlight   WildMenu     cterm=bold           ctermfg=71    ctermbg=236
 
 highlight   CurrLine     cterm=bold,inverse ctermfg=default  ctermbg=default
 highlight   OtherLine    cterm=bold         ctermfg=default ctermbg=235
