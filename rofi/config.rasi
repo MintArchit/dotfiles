@@ -151,8 +151,10 @@ configuration {
 
 }
 
-@theme "onedark"
+/* @theme "onedark" */
+@theme "style-1"
 
+/*
 entry {
     placeholder: "Type here";
     //cursor: pointer;
@@ -171,4 +173,4 @@ element-icon {
 element-text {
     vertical-align: 0.5;
 }
-
+*/
