@@ -166,6 +166,8 @@ bindsym $mod+Shift+e exec "i3-msg exit"
 bindsym $mod+Shift+l exec $HOME/ghub/scripts/utils/lock.sh
 bindsym $mod+comma exec gnome-control-center
 
+bindsym Print exec "flameshot full"
+bindsym Shift+Print exec "flameshot gui"
 
 # resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
@@ -209,6 +211,7 @@ mode "resize" {
 exec --no-startup-id ~/.fehbg &
 #exec --no-startup-id picom -f --xrender-fence
 exec --no-startup-id picom -b
+exec --no-startup-id flameshot -t true
 exec --no-startup-id $HOME/.config/polybar/launch.sh
 
 # test system
