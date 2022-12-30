@@ -10,8 +10,8 @@ set incsearch               " incremental search
 set autoindent              " indent a new line the same amount as the line just typed
 set number                  " add line numbers
 set wildmode=longest,list   " get bash-like tab completions
-set cc=80                  " set an 80 column border for good coding style
-filetype plugin indent on   "allow auto-indenting depending on file type
+set cc=80                   " set an 80 column border for good coding style
+filetype plugin indent on   " allow auto-indenting depending on file type
 syntax on                   " syntax highlighting
 set mouse=a                 " enable mouse click
 set clipboard=unnamedplus   " using system clipboard
@@ -263,7 +263,8 @@ nnoremap <C-Left> <C-W><C-H>
 
 " NERDTree Normal mode remappings
 nnoremap <C-q> :q!<CR>
-nnoremap <F4> :bd<CR>
+"nnoremap <F4> :bd<CR>
+nnoremap <F4> :tabclose<CR>
 nnoremap <F5> :NERDTreeToggle<CR>
 "nnoremap <F6> :belowright<CR>:terminal<CR>
 
