@@ -86,6 +86,7 @@ call plug#begin()
     Plug 'jiangmiao/auto-pairs'
     Plug 'ap/vim-css-color'
     Plug 'preservim/nerdtree'
+    Plug 'vimwiki/vimwiki'
 
     " Completion / linters / formatters
     Plug 'neoclide/coc.nvim',  {'branch': 'master', 'do': 'yarn install'}
@@ -347,3 +348,5 @@ autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 let g:vimtex_view_method = 'zathura'
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
