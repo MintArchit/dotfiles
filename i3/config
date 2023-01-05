@@ -225,4 +225,22 @@ exec_always "setxkbmap -model pc105 -option 'grp:win_shift_toggle' -layout us,de
 #bindsym $mod+k exec --no-startup-id setxkbmap us
 
 # You can also use any non-zero value if you'd like to have a border
-for_window [class=".*"] border pixel 0
+
+default_border none
+#default_border pixel 1
+#default_floating_border pixel 1
+#for_window [class=".*"] border pixel 1
+
+# colors
+# class                 border  backgr. text    indicator child_border
+#client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.focused          #ff000000 #880066ff #000000 #2e9ef4   #285577
+client.unfocused        #ff000000 #8800665a #000000 #292d2e   #222222
+#client.urgent           #2f343a #900000 #ffffff #900000   #900000
+#client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+#client.background       #ffffff
+
+#gaps
+gaps inner 6
+gaps outer 0
