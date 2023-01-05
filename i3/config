@@ -214,7 +214,7 @@ exec --no-startup-id ~/.fehbg &
 #exec --no-startup-id picom -f --xrender-fence
 exec --no-startup-id picom -b
 exec --no-startup-id flameshot -t true
-exec --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # test system
 exec_always "setxkbmap -model pc105 -option 'grp:win_shift_toggle' -layout us,de -variant ,qwerty"
