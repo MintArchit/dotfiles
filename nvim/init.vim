@@ -37,31 +37,32 @@ let &t_ZH="\e[3m"
 let &t_ZR="\e[23m"
 
 " netrw File browser
-let g:netrw_banner=0
-let g:netrw_liststyle=0
-let g:netrw_browse_split=4
-let g:netrw_altv=1
-let g:netrw_winsize=25
-let g:netrw_keepdir=0
-let g:netrw_localcopydircmd='cp -r'
+"let g:netrw_banner=0
+"let g:netrw_liststyle=0
+"let g:netrw_browse_split=4
+"let g:netrw_altv=1
+"let g:netrw_winsize=25
+"let g:netrw_keepdir=0
+"let g:netrw_localcopydircmd='cp -r'
 
-" Create file without opening buffer
-function! CreateInPreview()
-  let l:filename = input('please enter filename: ')
-  execute 'silent !touch ' . b:netrw_curdir.'/'.l:filename
-  redraw!
-endfunction
+"" Create file without opening buffer
+"function! CreateInPreview()
+  "let l:filename = input('please enter filename: ')
+  "execute 'silent !touch ' . b:netrw_curdir.'/'.l:filename
+  "redraw!
+"endfunction
 
-" Netrw: create file using touch instead of opening a buffer
-function! Netrw_mappings()
-  noremap <buffer>% :call CreateInPreview()<cr>
-endfunction
+"" Netrw: create file using touch instead of opening a buffer
+"function! Netrw_mappings()
+  "noremap <buffer>% :call CreateInPreview()<cr>
+"endfunction
 
-"autocmds
-augroup auto_commands
-    autocmd filetype netrw call Netrw_mappings()
-    autocmd TermOpen * setlocal nonumber norelativenumber
-augroup END
+""autocmds
+"augroup auto_commands
+    "autocmd filetype netrw call Netrw_mappings()
+    "autocmd TermOpen * setlocal nonumber norelativenumber
+"augroup END
+
 
 " Plugins
 " Plugins install with :PlugInstall
@@ -167,7 +168,6 @@ require'tabline'.setup {
 require('onedark').setup {
     style = 'warm'
 }
-require('onedark').load()
 require('lualine').setup {
   options = {
     icons_enabled = true,
@@ -214,6 +214,8 @@ require('ufo').setup({
         return ''
     end
 })
+
+require('onedark').load()
 
 END
 
@@ -304,7 +306,7 @@ function! MonkeyTerminalExec(cmd)
   wincmd p
 endfunction
 
-" hotkeys remapped
+" hotbinding
 " move panes
 "nnoremap <C-J> <C-W><C-J>
 "nnoremap <C-K> <C-W><C-K>
