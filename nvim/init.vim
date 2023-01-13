@@ -335,8 +335,8 @@ tnoremap <M-CR> <C-\><C-n>:call MonkeyTerminalToggle()<cr>
 " autocmds
 augroup remember_folds
   autocmd!
-  autocmd BufWinLeave * mkview
-  autocmd bufwinenter * silent! loadview
+  autocmd BufWinLeave,BufLeave * mkview
+  autocmd bufwinenter,BufEnter * silent! loadview
 augroup END
 
 " Start NERDTree. If a file is specified, move the cursor to its window.
