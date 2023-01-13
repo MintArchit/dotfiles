@@ -353,9 +353,11 @@ autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 let g:vimtex_view_method = 'zathura'
-let g:vimwiki_list = [{
-    'path': '~/vimwiki/', 
-    'syntax': 'markdown', 
-    'ext': '.md',
-    'auto_toc': 1
-}]
+let g:vimwiki_list = [{'syntax': 'markdown',
+\   'ext': '.md',
+\   'auto_toc': 1}]
+
+" Ctrl + S Save
+nnoremap <c-s> :w<CR> " normal mode: save
+inoremap <c-s> <Esc>:w<CR>l " insert mode: escape to normal and save
+vnoremap <c-s> <Esc>:w<CR> " visual mode: escape to normal and save
