@@ -70,7 +70,8 @@ call plug#begin()
     "Plug 'vim-airline/vim-airline'
     Plug 'nvim-lualine/lualine.nvim'
     Plug 'ryanoasis/vim-devicons'
-    Plug 'kyazdani42/nvim-web-devicons'
+    "Plug 'kyazdani42/nvim-web-devicons'
+    Plug 'MintArchit/nvim0.6.1-devicons'
     Plug 'kdheepak/tabline.nvim'
     "Plug 'elvessousa/sobrio'
     "Plug 'lunarvim/colorschemes'
@@ -90,7 +91,8 @@ call plug#begin()
     Plug 'vimwiki/vimwiki'
 
     " Completion / linters / formatters
-    Plug 'neoclide/coc.nvim',  {'branch': 'master', 'do': 'yarn install'}
+    "Plug 'neoclide/coc.nvim',  {'branch': 'master', 'do': 'yarn install'}
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
     "Plug 'plasticboy/vim-markdown'
 
     " Git
