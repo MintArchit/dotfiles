@@ -35,7 +35,6 @@ set $wsb8 "8:2"
 
 set $monitor eDP-1
 set $monitor2 HDMI-1
-
 # End_set
 
 # preference_group
@@ -280,9 +279,6 @@ mode "resize" {
 #		separator #ffc5022
 #	}
 #}
-
-
-
 # End_bindsym
 
 # End_i3-config-file
