@@ -1,0 +1,7 @@
+termdown
+trash-cli
+tmuxp
+i3ipc
+click
+pydbus
+pygobject
