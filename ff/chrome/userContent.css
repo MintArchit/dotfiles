@@ -1,0 +1,37 @@
+/* https://support.mozilla.org/en-US/questions/1230540 */
+
+@-moz-document url("about:sessionrestore") {
+    .container.restore-chosen {
+        margin: 0 !important;
+    }
+
+    body {
+      padding: 10px 0 !important;
+      --in-content-container-max-width: none;
+
+    }
+    
+    .tree-container {
+      visibility: visible !important;
+    }
+
+    /* Element | about:sessionrestore */
+
+    .description {
+      font-size: 0;
+    }
+
+    .title {
+      visibility: hidden;
+    }
+    
+    .title:after {
+      content:'Sessionrestore'; 
+      visibility: visible;
+    }
+
+    .container {
+      width: 90% !important;
+    }
+
+}
