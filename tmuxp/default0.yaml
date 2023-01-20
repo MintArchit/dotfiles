@@ -1,0 +1,19 @@
+session_name: session-default0
+windows:
+  - window_name: zsh
+    panes:
+      - shell_command:
+        - gh contrib
+        - hello.sh
+  - window_name: cfg
+    layout: even-horizontal
+    start_directory: ghub/
+    panes:
+      - start_directory: ghub/scripts
+      - start_directory: ghub/dotfiles
+  - window_name: notes
+    start_directory: ghub/notes
+    panes:
+      - pane
+
+
