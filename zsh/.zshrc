@@ -120,9 +120,13 @@ alias cls='cls.sh'
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
 
+export DISABLE_AUTO_TITLE='true'
+export TMUXP_CONFIGDIR=$HOME/.config/tmuxp
+
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   #exec tmux new-session -A -s main
-  exec tmux 
+  #exec tmuxp load default0
+  exec tmux
 fi
 
 # enable control-s and control-q
@@ -130,6 +134,7 @@ fi
 #stty stop undef
 #stty stop '' -ixoff
 #setopt noflowcontrol
+
 
 compinit
 _comp_options+=(globdots)
