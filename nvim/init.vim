@@ -1,5 +1,6 @@
 "v Options
 set background=dark
+set nowrap
 set foldcolumn=1
 set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching 
@@ -26,7 +27,7 @@ set ttyfast                 " Speed up scrolling in Vim
 set softtabstop=4           " see multiple spaces as tabstops so <BS> does the right thing
 set shiftwidth=4            " width for autoindents
 set tabstop=4               " number of columns occupied by a tab 
-set expandtab               " converts tabs to white space
+"set expandtab               " converts tabs to white space
 
 if $TERM !=? 'xterm-256color'
         set termguicolors
