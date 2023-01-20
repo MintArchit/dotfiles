@@ -1,0 +1,15 @@
+# +path + title + uploader + sliced with python
+# --output "/home/tuser0/Videos/%%(title.0:40)-%%(uploader)s.%%(ext)s"
+-f m4a
+
+--audio-format mp3
+
+# path
+--paths "$HOME/Music/"
+ 
+# no whitespaces
+--restrict-filenames
+
+# Limit Limit the filename length (excluding extension) 
+# to the specified number of characters
+--trim-filenames 30
