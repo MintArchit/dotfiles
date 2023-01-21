@@ -5,3 +5,4 @@ i3ipc
 click
 pydbus
 pygobject
+autorandr
