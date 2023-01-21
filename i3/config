@@ -12,28 +12,14 @@ set $refresh_i3status killall -SIGUSR1 i3status
 set $wsa1 "1:1"
 set $wsa2 "2:1"
 set $wsa3 "3:1"
-set $wsa4 "4:1"
-#set $wsa5 "5:5"
-#set $wsa6 "6:6"
-#set $wsa7 "7:7"
-#set $wsa8 "8:8"
-#set $wsa9 "9:9"
-#set $wsa0 "0:0"
 
 
-#set $wsb1 "21:0"
-#set $wsb2 "22:9"
-#set $wsb3 "23:III"
-#set $wsb4 "24:4"
-set $wsb5 "5:2"
-set $wsb6 "6:2"
-set $wsb7 "7:2"
-set $wsb8 "8:2"
-#set $wsb9 "29:9"
-#set $wsb0 "20:0"
+set $wsb1 "1:2"
+set $wsb2 "2:2"
+set $wsb3 "3:2"
 
 
-set $monitor eDP-1
+set $monitor0 eDP-1
 set $monitor2 HDMI-1
 # End_set
 
@@ -55,17 +41,18 @@ default_border none
 #default_floating_border pixel 1
 #for_window [class=".*"] border pixel 1
 
+workspace_layout tabbed
 
-workspace $wsa1 output monitor $monitor
-workspace $wsa2 output monitor $monitor
-workspace $wsa3 output monitor $monitor
-workspace $wsa4 output monitor $monitor
-workspace $wsa5 output monitor $monitor
-workspace $wsa6 output monitor $monitor
-workspace $wsa7 output monitor $monitor
-workspace $wsa8 output monitor $monitor
-workspace $wsa9 output monitor $monitor
-workspace $wsa0 output monitor $monitor
+workspace $wsa1 output monitor $monitor0
+workspace $wsa2 output monitor $monitor0
+workspace $wsa3 output monitor $monitor0
+workspace $wsa4 output monitor $monitor0
+workspace $wsa5 output monitor $monitor0
+workspace $wsa6 output monitor $monitor0
+workspace $wsa7 output monitor $monitor0
+workspace $wsa8 output monitor $monitor0
+workspace $wsa9 output monitor $monitor0
+workspace $wsa0 output monitor $monitor0
 
 workspace $wsb1 output monitor $monitor2
 workspace $wsb2 output monitor $monitor2
@@ -108,15 +95,15 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
-#exec --no-startup-id picom -f --xrender-fence
-exec --no-startup-id picom -
 exec --no-startup-id flameshot -t true
 # End_exec
 
 # exec_always_group
+#exec --no-startup-id picom -f --xrender-fence
+exec --no-startup-id picom -
 exec_always --no-startup-id ~/.fehbg -bg-fill &
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always --no-startup-id xrandr --output HDMI-1 --auto --above eDP-1
+exec_always --no-startup-id xrandr --output $monitor2 --auto --above $monitor0
 # switch keyboard layout
 exec_always "setxkbmap -model pc105 -option 'grp:win_shift_toggle' -layout us,de -variant ,qwerty"
 # setxkbmap -query
@@ -140,10 +127,33 @@ floating_modifier $mod
 bindsym $mod+t exec i3-sensible-terminal # start a terminal
 bindsym $mod+b exec firefox
 bindsym $mod+e exec nemo
+bindsym $mod+Escape exec pkill i3-nagbar
 
 # kill focused window
 bindsym $mod+F4 kill
 
+bindsym $mod+p mode "xrandr"
+#bindsym $mod+p exec "xrandr --output $monitor2 --auto --above $monitor"
+mode "xrandr" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # same bindings, but for the arrow keys
+        bindsym r exec "xrandr --output $monitor2 --rotate left --above $monitor0" mode "default"
+        bindsym Shift+r exec "xrandr --output $monitor2 --rotate normal --above $monitor0" mode "default"
+        #bindsym m exec "xrandr --output $monitor2 --same-as $monitor"
+        #bindsym m exec "xrandr --output $monitor2 --mode 1920x1080 --same-as $monitor0 --mode 1366x768"
+        #bindsym m exec "xrandr --output $monitor2 --mode 1920x1080 --output $monitor0 --same-as $monitor0 --scale `echo \\"1280/1920\\" | bc -l`x`echo \\"720/1080\\" | bc -l`"
+        bindsym m exec "xrandr --output eDP-1 --auto --scale-from 1920x1080 --output HDMI-1 --output HDMI-1 --same-as eDP-1"
+        bindsym j exec "xrandr --auto --output HDMI-1 --above eDP-1 --output eDP-1 --scale-from 1366x768"
+        bindsym 1 exec "xrandr --output $monitor0 --off"
+        bindsym Shift+1 exec "xrandr --output $monitor0 --auto"
+        #bindsym 2 exec "xrandr --output $monitor2 --off"
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+p mode "default"
+}
 # start dmenu/rofi (a program launcher)
 bindsym $mod+F2 exec --no-startup-id dmenu_run -b
 # A more modern dmenu replacement is rofi:
@@ -187,12 +197,8 @@ bindsym $mod+minus split v
 bindsym $mod+F11 fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-#bindsym $mod+s layout stacking
-#bindsym $mod+w layout tabbed
-#bindsym $mod+e layout toggle split
-#bindsym $mod+Alt+Left layout toggle splith tabbed stacked splitv
-bindsym $mod+Tab layout toggle tabbed splith splitv 
-bindsym $mod+Shift+Tab layout toggle splitv splith tabbed
+bindsym $mod+Tab layout toggle tabbed splitv splith
+bindsym $mod+Shift+Tab layout toggle splith splitv tabbed
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -207,24 +213,22 @@ bindsym $mod+x focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 exec --no-startup-id i3-msg workspace 1:1
-bindsym $mod+2 exec --no-startup-id i3-msg workspace 2:1
+bindsym $mod+mod2+KP_1 exec --no-startup-id i3-msg workspace $wsa1
+bindsym $mod+mod2+KP_2 exec --no-startup-id i3-msg workspace $wsa2
+bindsym $mod+mod2+KP_3 exec --no-startup-id i3-msg workspace $wsa3
 
-
-bindsym $mod+Ctrl+1 exec --no-startup-id i3-msg workspace 5:2
-bindsym $mod+Alt+2 exec --no-startup-id i3-msg workspace 6:2
+bindsym $mod+Control+mod2+KP_1 exec --no-startup-id i3-msg workspace $wsb1
+bindsym $mod+Control+mod2+KP_2 exec --no-startup-id i3-msg workspace $wsb2
+bindsym $mod+Control+mod2+KP_3 exec --no-startup-id i3-msg workspace $wsb3
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod+Shift+Mod2+KP_1 move container to workspace number $wsa1
+bindsym $mod+Shift+Mod2+KP_2 move container to workspace number $wsa2
+bindsym $mod+Shift+Mod2+KP_3 move container to workspace number $wsa3
+
+bindsym $mod+Shift+Control+Mod2+KP_1 move container to workspace number $wsb1
+bindsym $mod+Shift+Control+Mod2+KP_2 move container to workspace number $wsb2
+bindsym $mod+Shift+Control+Mod2+KP_3 move container to workspace number $wsb3
 
 # reload the configuration file
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
