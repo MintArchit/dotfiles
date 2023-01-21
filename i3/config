@@ -143,10 +143,10 @@ mode "xrandr" {
         #bindsym m exec "xrandr --output $monitor2 --same-as $monitor"
         #bindsym m exec "xrandr --output $monitor2 --mode 1920x1080 --same-as $monitor0 --mode 1366x768"
         #bindsym m exec "xrandr --output $monitor2 --mode 1920x1080 --output $monitor0 --same-as $monitor0 --scale `echo \\"1280/1920\\" | bc -l`x`echo \\"720/1080\\" | bc -l`"
-        bindsym m exec "xrandr --output eDP-1 --auto --scale-from 1920x1080 --output HDMI-1 --output HDMI-1 --same-as eDP-1"
-        bindsym j exec "xrandr --auto --output HDMI-1 --above eDP-1 --output eDP-1 --scale-from 1366x768"
-        bindsym 1 exec "xrandr --output $monitor0 --off"
-        bindsym Shift+1 exec "xrandr --output $monitor0 --auto"
+        bindsym m exec "xrandr --output eDP-1 --auto --scale-from 1920x1080 --output HDMI-1 --output HDMI-1 --same-as eDP-1" mode "default"
+        bindsym j exec "xrandr --auto --output HDMI-1 --above eDP-1 --output eDP-1 --scale-from 1366x768" mode "default"
+        bindsym 1 exec "xrandr --output $monitor0 --off" mode "default"
+        bindsym Shift+1 exec "xrandr --output $monitor0 --auto" mode "default"
         #bindsym 2 exec "xrandr --output $monitor2 --off"
 
         # back to normal: Enter or Escape or $mod+r
