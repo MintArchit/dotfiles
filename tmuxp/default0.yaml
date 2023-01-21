@@ -1,4 +1,4 @@
-session_name: session-default0
+session_name: default0
 windows:
   - window_name: zsh
     panes:
