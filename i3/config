@@ -128,6 +128,7 @@ bindsym $mod+t exec i3-sensible-terminal # start a terminal
 bindsym $mod+b exec firefox
 bindsym $mod+e exec nemo
 bindsym $mod+Escape exec pkill i3-nagbar
+bindsym $mod+q exec dunstctl close-all
 
 # kill focused window
 bindsym $mod+F4 kill
