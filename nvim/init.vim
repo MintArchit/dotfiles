@@ -320,10 +320,17 @@ nnoremap <C-Right> <C-W><C-L>
 nnoremap <C-Left> <C-W><C-H>
 
 " NERDTree Normal mode remappings
-nnoremap <C-q> :q!<CR>
+nnoremap <M-v> <c-v>
+nnoremap <C-q> :q<CR>
+vnoremap <C-q> <Esc>:q<CR>
+inoremap <C-q> <Esc>:q<CR>
+nnoremap <M-q> :q!<CR>
+vnoremap <M-q> <Esc>:q!<CR>
+inoremap <M-q> <Esc>:q!<CR>
+
 "nnoremap <F4> :bd<CR>
 nnoremap <F4> :tabclose<CR>
-nnoremap <F5> :NERDTreeToggle<CR>
+nnoremap <F3> :NERDTreeToggle<CR>
 "nnoremap <F6> :belowright<CR>:terminal<CR>
 
 " With this maps you can now toggle the terminal
