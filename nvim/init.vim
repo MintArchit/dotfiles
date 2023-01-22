@@ -368,8 +368,8 @@ inoremap <c-s> <Esc>:w<CR>l " insert mode: escape to normal and save
 vnoremap <c-s> <Esc>:w<CR> " visual mode: escape to normal and save
 
 " Tabs
-nnoremap <Tab> gt
-nnoremap <s-Tab> gT
+nnoremap <Tab> gT
+nnoremap <s-Tab> gt
 nnoremap <silent> <S-t> :tabnew<CR>
 
 
