@@ -334,8 +334,8 @@ nnoremap <F3> :NERDTreeToggle<CR>
 "nnoremap <F6> :belowright<CR>:terminal<CR>
 
 " With this maps you can now toggle the terminal
-nnoremap <F7> :call MonkeyTerminalToggle()<cr>
-tnoremap <F7> <C-\><C-n>:call MonkeyTerminalToggle()<cr>
+nnoremap <F12> :call MonkeyTerminalToggle()<cr>a
+tnoremap <F12> <C-\><C-n>:call MonkeyTerminalToggle()<cr>
 nnoremap <M-CR> :call MonkeyTerminalToggle()<cr>
 tnoremap <M-CR> <C-\><C-n>:call MonkeyTerminalToggle()<cr>
 :tnoremap <Esc> <C-\><C-n>
