@@ -232,8 +232,8 @@ let NERDTreeDirArrows = 1
 let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
 
 " Tabs
-nnoremap <S-Tab> gT
-nnoremap <Tab> gt
+nnoremap <C-Tab> gt
+nnoremap <C-S-Tab> gT
 nnoremap <silent> <S-t> :tabnew<CR>
 
 " Terminal
