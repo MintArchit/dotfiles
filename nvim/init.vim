@@ -220,6 +220,12 @@ require('onedark').load()
 
 END
 
+let g:vimtex_view_method = 'zathura'
+let g:vimwiki_list = [{'syntax': 'markdown',
+\   'ext': '.md',
+\   'auto_toc': 1}]
+let g:vimwiki_key_mappings = { 'links': 0, }
+
 " Airline conf
 "let g:airline_theme='onedark'
 "let g:airline_powerline_fonts = 1
@@ -230,11 +236,6 @@ let NERDTreeShowHidden=1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
-
-" Tabs
-nnoremap <C-Tab> gt
-nnoremap <C-S-Tab> gT
-nnoremap <silent> <S-t> :tabnew<CR>
 
 " Terminal
 " With this function you can reuse the same terminal in neovim.
@@ -360,12 +361,15 @@ autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-let g:vimtex_view_method = 'zathura'
-let g:vimwiki_list = [{'syntax': 'markdown',
-\   'ext': '.md',
-\   'auto_toc': 1}]
 
 " Ctrl + S Save
 nnoremap <c-s> :w<CR> " normal mode: save
 inoremap <c-s> <Esc>:w<CR>l " insert mode: escape to normal and save
 vnoremap <c-s> <Esc>:w<CR> " visual mode: escape to normal and save
+
+" Tabs
+nnoremap <Tab> gt
+nnoremap <s-Tab> gT
+nnoremap <silent> <S-t> :tabnew<CR>
+
+
