@@ -3,7 +3,7 @@ windows:
   - window_name: zsh
     panes:
       - shell_command:
-        - gh contrib
+        - gh contribs
         - hello.sh
   - window_name: cfg
     layout: even-horizontal
