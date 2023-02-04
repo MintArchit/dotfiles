@@ -6,3 +6,4 @@ click
 pydbus
 pygobject
 autorandr
+asciinema
