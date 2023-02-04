@@ -500,6 +500,8 @@ nnoremap <c-u> <c-w>x
 
 " -------------------------------------------------------------------
 
-"my change
+"custom conf by myself
 nnoremap <c-q> :q<cr>
+
+source $HOME/ghub/community/vifm_devicons/favicons.vifm
 
