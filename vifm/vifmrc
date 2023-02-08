@@ -167,7 +167,7 @@ command! reload :write | restart full
 
 " Pdf
 filextype {*.pdf},<application/pdf> zathura %c %i &, apvlv %c, xpdf %c
-fileviewer {*.pdf},<application/pdf> pdftotext -nopgbrk %c -
+"fileviewer {*.pdf},<application/pdf> pdftotext -nopgbrk %c -
 
 " PostScript
 filextype {*.ps,*.eps,*.ps.gz},<application/postscript>
@@ -228,13 +228,13 @@ filetype {*.[1-8]},<text/troff> man ./%c
 fileviewer {*.[1-8]},<text/troff> man ./%c | col -b
 
 " Images
-filextype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
-        \ {View in sxiv}
-        \ sxiv %f,
-        \ {View in gpicview}
-        \ gpicview %c,
-        \ {View in shotwell}
-        \ shotwell,
+"filextype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
+"        \ {View in sxiv}
+"        \ sxiv %f,
+"        \ {View in gpicview}
+"        \ gpicview %c,
+"        \ {View in shotwell}
+"        \ shotwell,
 fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
          \ identify %f
 
@@ -504,4 +504,40 @@ nnoremap <c-u> <c-w>x
 nnoremap <c-q> :q<cr>
 
 source $HOME/ghub/community/vifm_devicons/favicons.vifm
+set mouse=a
 
+plugin blacklist devicons
+
+fileviewer *.pdf
+        \ vifm-sixel pdf %pw %ph %c %pd
+        \ %pc
+        \ vifm-sixel clear
+
+fileviewer *.epub
+    \ vifm-sixel epub %pw %ph %c %pd
+    \ %pc
+    \ vifm-sixel clear
+
+fileviewer <video/*>
+    \ vifm-sixel video %pw %ph %c %pd
+    \ %pc
+    \ vifm-sixel clear
+
+fileviewer <image/*>
+    \ vifm-sixel draw %pw %ph %c %pd
+    \ %pc
+    \ vifm-sixel clear
+
+fileviewer <audio/*>
+    \ vifm-sixel audio %pw %ph %c %pd
+    \ %pc
+    \ vifm-sixel clear
+
+fileviewer <font/*>
+    \ vifm-sixel font %pw %ph %c %pd
+    \ %pc
+    \ vifm-sixel clear
+
+filextype {*.gif},<image/*>
+        \ {View in shotwell}
+        \ firefox,
