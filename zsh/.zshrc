@@ -112,16 +112,22 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ls='ls --color=tty --group-directories-first -p'
-alias lh='ls --color=tty --group-directories-first -pAd .*'
+alias l='lsd'
+alias ls='l'
+alias la='l -A'
+alias ll='l -lh'
+alias lt='l --tree'
 alias psh='gitup.sh'
 alias cls='cls.sh'
+alias wt='git worktree'
 
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
 
 export DISABLE_AUTO_TITLE='true'
 export TMUXP_CONFIGDIR=$HOME/.config/tmuxp
+
+[[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   #exec tmux new-session -A -s main
@@ -147,3 +153,5 @@ _comp_options+=(globdots)
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+if [ -e /home/guser0/.nix-profile/etc/profile.d/nix.sh ]; then . /home/guser0/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
